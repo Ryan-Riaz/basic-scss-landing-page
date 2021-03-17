@@ -1,0 +1,76 @@
+@import "./colors";
+@import "./mediaQueries";
+
+%align-center {
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    background: $light;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem calc((100vw - 1200px) / 2);
+    position: relative;
+    z-index: 10;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    &__logo {
+        cursor: pointer;
+        text-decoration: none;
+        margin-left: 25px;
+        font-size: 2rem;
+        color: $dark;
+        @extend %align-center;
+    }
+    &__bars {
+        opacity: 0;
+
+        @include tablet {
+            opacity: 1;
+            font-size: 2rem;
+            color: $dark;
+            position: absolute;
+            top: 20px;
+            right: 24px;
+        }
+    }
+    &__menu {
+        @extend %align-center;
+        margin-right: 25px;
+        text-align: center;
+        list-style: none;
+
+        @include tablet {
+            display: none;
+        }
+
+        &--links {
+            @extend %align-center;
+            justify-content: center;
+            padding: 0 1rem;
+            color: $dark;
+            text-decoration: none;
+
+            &:hover {
+                color: $lime;
+                transition: all 0.5s ease;
+            }
+        }
+        #button {
+            outline: none;
+            border: none;
+            padding: 12px 24px;
+            background: $lime;
+            color: $light;
+            border-radius: 4px;
+            margin-left: 12px;
+
+            &:hover {
+                background: $orangeRed;
+                transition: all 0.5s ease;
+            }
+        }
+    }
+}
